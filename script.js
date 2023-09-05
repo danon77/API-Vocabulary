@@ -4,8 +4,7 @@ const example = document.querySelector(".sentence")
 const input = document.querySelector(".input")
 const button = document.querySelector(".button")
 const volume = document.querySelector(".fa-volume-high")
-const span = document.querySelector("span")
-const transcription = document.querySelector(".transcription")
+const info = document.querySelector(".word-info")
 const sound = new Audio()
 
 function getWord(str) {
@@ -22,8 +21,22 @@ function getWord(str) {
         .then(item => {
             console.log(item)
             word.textContent = item[0].word
-            span.textContent = item[0].meanings[0].partOfSpeech
-            transcription.textContent = item[0].phonetic
+            //Виводимо всі мінінгси
+            for (let i = 0; i < (item[0].meanings).length; i++) {
+                let div = document.createElement("div")
+                div.textContent = item[0].meanings[i].partOfSpeech
+                div.classList.add("red")
+                info.appendChild(div)
+
+                for (let j = 0; j < (item[0].meanings[i].definitions).length; j++) {
+                    let div1 = document.createElement("div")
+                    div1.textContent = item[0].meanings[i].definitions[j].definition
+                    div1.classList.add("green")
+                    info.appendChild(div1)
+                }
+            }
+            //span.textContent = item[0].meanings[0].partOfSpeech
+            //transcription.textContent = item[0].phonetic
             meaning.textContent = item[0].meanings[0].definitions[0].definition
             example.textContent = item[0].meanings[0].definitions[0].example
 

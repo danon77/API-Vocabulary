@@ -31,6 +31,10 @@ body {
     height: 40px;
 }
 
+.word-info > * {
+    margin: 10px;
+}
+
 .input {
     width: 405px;
     height: 50px;
@@ -67,6 +71,14 @@ body {
     gap: 15px;
     margin-top: 10px;
     color: #bbbbbd;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
 }
 
 .fa-solid {
