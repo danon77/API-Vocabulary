@@ -19,7 +19,7 @@ body {
     position: relative;
     padding: 100px 50px;
     width: 640px;
-    height: 640px;
+    min-height: 640px;
     background: #fff;
     border-radius: 8px;
 }
